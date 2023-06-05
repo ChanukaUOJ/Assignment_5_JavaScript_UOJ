@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 5</title>
+
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <h2>Exercise</h2>
+    <p class="topP">Fill the comments to describe the data type of the given variable</p>
+    <div class="container">
+
+        <ol>
+            <li>
+                <p><span>let</span> length = 10; // </p>
+                <input type="text" id="input1">
+                <p id="update1" class="updateTag"></p>
+            </li>
+            <li>
+                <p><span>let</span> lastName = "Raj"; // </p>
+                <input type="text" id="input2">
+                <p id="update2" class="updateTag"></p>
+            </li>
+            <li>
+                <p><span>const</span> x = { <br>&emsp;firstName: "John",<br>&emsp;lastName: "Nila"<br>};&emsp;&emsp;//</p>
+                <input type="text" id="input3">
+                <p id="update3" class="updateTag"></p>
+            </li>
+        </ol>
+
+        <div class="btns">
+            <button class="btn-style" onclick="submitAnswer();">Submit Answer</button>
+            <button class="btn-style" onclick="showAnswer()">Show Answer</button>
+            <button class="btn-style" onclick="tryAgain()">Try Again</button>
+        </div>
+
+    </div>
+
+    <script>
+        
+         //take inputs
+        function takeInputs(){
+            var input1User = document.getElementById("input1").value;
+            var input2User = document.getElementById("input2").value;
+            var input3User = document.getElementById("input3").value;
+            return [input1User,input2User,input3User];
+        }
+
+        //take p tags
+        function takePtags(){
+            var update1Value = document.getElementById("update1");
+            var update2Value = document.getElementById("update2");
+            var update3Value = document.getElementById("update3");
+            return [update1Value,update2Value,update3Value];
+        }
+        
+        //clear input fields
+        function clearInputs(){
+            var input1User = document.getElementById("input1").value = '';
+            var input2User = document.getElementById("input2").value = '';
+            var input3User = document.getElementById("input3").value = '';
+            return [input1User,input2User,input3User];
+        }
+
+        //checking function
+        function checking(input1Value,input2Value,input3Value){
+
+            var list = takePtags();
+            if(input1Value == "Integer" || input1Value == "integer"){
+                list[0].innerHTML = "✅";
+            } else {
+                list[0].innerHTML = "❌";
+            }
+            if(input2Value == "String" || input2Value == "string"){
+                list[1].innerHTML = "✅";
+            } else {
+                list[1].innerHTML = "❌";
+            }
+            if(input3Value == "Object" || input3Value == "object"){
+                list[2].innerHTML = "✅";
+            } else {
+                list[2].innerHTML = "❌";
+            }
+        }
+        
+        //submit
+        function submitAnswer(){
+            var list = takeInputs();
+            checking(list[0],list[1],list[2]);
+        }
+
+        //show answer
+        function showAnswer(){
+            var input1User = document.getElementById("input1").value = 'Integer';
+            var input2User = document.getElementById("input2").value = 'String';
+            var input3User = document.getElementById("input3").value = 'Object';
+            return [input1User,input2User,input3User];
+        }
+
+        //tryAgain
+        function tryAgain(){
+            var list1 = takePtags();
+            list1[0].innerHTML = "";
+            list1[1].innerHTML = "";
+            list1[2].innerHTML = "";
+
+            clearInputs();
+        }
+
+    </script>
+
+    
+</body>
+</html>
